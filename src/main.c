@@ -52,7 +52,15 @@
 #define LED_BLUE   1U<<15
 
 // Variável para contagem do tempo em ms
-static volatile uint32_t msTicks = 0;
+volatile uint32_t msTicks = 0;
+
+// Pilhas das tarefas
+uint32_t orange_stack[40];
+uint32_t green_stack[40];
+
+// Apontadores das pilhas das tarefas
+uint32_t* sp_orange = &orange_stack[40];
+uint32_t* sp_green = &green_stack[40];
 
 // ----------------------------------------------------------------------------
 
@@ -64,6 +72,7 @@ uint32_t get_ticks();
 void delay_ms(uint32_t delay);
 void led_turnOn(uint32_t ledPin);
 void led_turnOff(uint32_t ledPin);
+void initialize_task_stack();
 
 // ----------------------------------------------------------------------------
 
@@ -83,6 +92,8 @@ int
 main(int argc, char* argv[])
 {
   HAL_Init();
+
+  initialize_task_stack();
 
   SysTick_Config(SystemCoreClock/16000); // habilita interrupções do systick
 
@@ -189,6 +200,44 @@ void
 led_turnOff(uint32_t ledPin)
 {
   GPIOD->ODR &= ~(ledPin); // Atribui nível baixo na saída do pino
+}
+
+void
+initialize_task_stack()
+{
+  // Sequência dos registradores:
+  //    xPSR
+  //    PC
+  //    LR
+  //    R12
+  //    R3
+  //    R2
+  //    R1
+  //    R0
+
+  // Inicialização da pilha da task blink_orange
+  orange_stack[39] = 1U << 24;
+  orange_stack[38] = 0x08003DE4;
+  orange_stack[37] = 0x0000AAAA;
+  orange_stack[36] = 0x0000BBBB;
+  orange_stack[35] = 0x0000CCCC;
+  orange_stack[34] = 0x0000DDDD;
+  orange_stack[33] = 0x0000EEEE;
+  orange_stack[32] = 0x0000FFFF;
+
+  sp_orange--;
+
+  // Inicialização da pilha da task blink_green
+  green_stack[39] = 1U << 24;
+  green_stack[38] = 0x08003E0A;
+  green_stack[37] = 0x0000ABCD;
+  green_stack[36] = 0x0000BCDE;
+  green_stack[35] = 0x0000CDEF;
+  green_stack[34] = 0x0000DEFA;
+  green_stack[33] = 0x0000EFAB;
+  green_stack[32] = 0x0000FABC;
+
+  sp_green--;
 }
 
 
