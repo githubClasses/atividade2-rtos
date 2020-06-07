@@ -59,12 +59,19 @@ static volatile uint32_t msTicks = 0;
 /*
  * ---------------- Protótipos das funções auxiliares ------------------------
  */
-void GPIO_Config();
-uint32_t get_tick();
+void gpio_config();
+uint32_t get_ticks();
 void delay_ms(uint32_t delay);
 void led_turnOn(uint32_t ledPin);
 void led_turnOff(uint32_t ledPin);
 
+// ----------------------------------------------------------------------------
+
+/*
+ * ---------------- Protótipos das funções de Tasks ---------------------------
+ */
+void blink_orange();
+void blink_green();
 
 // ----------------------------------------------------------------------------
 
@@ -81,18 +88,48 @@ main(int argc, char* argv[])
 
   gpio_config(); // configura o clock no barramento e as portas GPIO
 
+  // Cria apontadores para as tasks para garantir que as funções sejam definidas
+  // no arquivo compilado
+  void (*blink_orange_task)() = &blink_orange;
+  void (*blink_green_task)() = &blink_green;
 
   while (1)
     {
-      for (int i = 0; i < 4; i++)
-        {
-          led_turnOn(LED_GREEN << i);
-          delay_ms(1000);
-          led_turnOff(LED_GREEN << i);
-        }
+      blink_orange_task();
+      blink_green_task();
     }
 
   return 0;
+}
+
+// ----------------------------------------------------------------------------
+
+/*
+ * ----------------------- Definição das Tasks --------------------------------
+ */
+
+void
+blink_orange()
+{
+  while (1)
+    {
+      led_turnOn(LED_ORANGE);
+      delay_ms(1000);
+      led_turnOff(LED_ORANGE);
+      delay_ms(1000);
+    }
+}
+
+void
+blink_green()
+{
+  while(1)
+    {
+      led_turnOn(LED_GREEN);
+      delay_ms(1000);
+      led_turnOff(LED_GREEN);
+      delay_ms(1000);
+    }
 }
 
 // ----------------------------------------------------------------------------
