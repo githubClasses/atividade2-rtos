@@ -3989,10 +3989,10 @@ END GROUP
 
 .inits          0x00000000080004d4       0x28
                 0x00000000080004d4                __data_regions_array_start = .
-                0x00000000080004d4        0x4 LONG 0x8005288 LOADADDR (.data)
+                0x00000000080004d4        0x4 LONG 0x8005298 LOADADDR (.data)
                 0x00000000080004d8        0x4 LONG 0x20000000 ADDR (.data)
                 0x00000000080004dc        0x4 LONG 0x20000078 (ADDR (.data) + SIZEOF (.data))
-                0x00000000080004e0        0x4 LONG 0x8005288 LOADADDR (.data_CCMRAM)
+                0x00000000080004e0        0x4 LONG 0x8005298 LOADADDR (.data_CCMRAM)
                 0x00000000080004e4        0x4 LONG 0x10000000 ADDR (.data_CCMRAM)
                 0x00000000080004e8        0x4 LONG 0x10000000 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
                 0x00000000080004ec                __data_regions_array_end = .
@@ -4024,7 +4024,7 @@ END GROUP
 .flashtext
  *(.flashtext .flashtext.*)
 
-.text           0x0000000008000500     0x4d87
+.text           0x0000000008000500     0x4d97
  *(.text .text.*)
  .text          0x0000000008000500      0x2d8 ./system/src/stm32f4-hal/stm32f4xx_hal.o
                 0x0000000008000500                HAL_Init
@@ -4143,7 +4143,7 @@ END GROUP
  .text          0x0000000008003c2c       0xd4 ./src/_initialize_hardware.o
                 0x0000000008003c2c                __initialize_hardware
                 0x0000000008003c40                SystemClock_Config
- .text          0x0000000008003d00      0x2e4 ./src/main.o
+ .text          0x0000000008003d00      0x2f0 ./src/main.o
                 0x0000000008003d98                main
                 0x0000000008003de4                blink_orange
                 0x0000000008003e0a                blink_green
@@ -4154,209 +4154,209 @@ END GROUP
                 0x0000000008003ec8                led_turnOn
                 0x0000000008003eec                led_turnOff
                 0x0000000008003f10                initialize_task_stack
- .text          0x0000000008003fe4       0x30 ./src/stm32f4xx_hal_msp.o
-                0x0000000008003fe4                HAL_MspInit
-                0x0000000008003ff0                HAL_MspDeInit
-                0x0000000008003ffc                HAL_PPP_MspInit
-                0x0000000008004008                HAL_PPP_MspDeInit
- .text.__errno  0x0000000008004014        0xc c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-errno.o)
-                0x0000000008004014                __errno
- .text.std      0x0000000008004020       0x48 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
+ .text          0x0000000008003ff0       0x30 ./src/stm32f4xx_hal_msp.o
+                0x0000000008003ff0                HAL_MspInit
+                0x0000000008003ffc                HAL_MspDeInit
+                0x0000000008004008                HAL_PPP_MspInit
+                0x0000000008004014                HAL_PPP_MspDeInit
+ .text.__errno  0x0000000008004020        0xc c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-errno.o)
+                0x0000000008004020                __errno
+ .text.std      0x000000000800402c       0x48 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
  .text._cleanup_r
-                0x0000000008004068        0xc c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
-                0x0000000008004068                _cleanup_r
+                0x0000000008004074        0xc c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
+                0x0000000008004074                _cleanup_r
  .text.__sfmoreglue
-                0x0000000008004074       0x2c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
-                0x0000000008004074                __sfmoreglue
+                0x0000000008004080       0x2c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
+                0x0000000008004080                __sfmoreglue
  .text.__sfp_lock_acquire
-                0x00000000080040a0        0xc c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
-                0x00000000080040a0                __sfp_lock_acquire
- .text.__sfp_lock_release
                 0x00000000080040ac        0xc c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
-                0x00000000080040ac                __sfp_lock_release
- .text.__sinit_lock_acquire
+                0x00000000080040ac                __sfp_lock_acquire
+ .text.__sfp_lock_release
                 0x00000000080040b8        0xc c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
-                0x00000000080040b8                __sinit_lock_acquire
- .text.__sinit_lock_release
+                0x00000000080040b8                __sfp_lock_release
+ .text.__sinit_lock_acquire
                 0x00000000080040c4        0xc c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
-                0x00000000080040c4                __sinit_lock_release
- .text.__sinit  0x00000000080040d0       0x70 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
-                0x00000000080040d0                __sinit
- .text.__sfp    0x0000000008004140       0x8c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
-                0x0000000008004140                __sfp
+                0x00000000080040c4                __sinit_lock_acquire
+ .text.__sinit_lock_release
+                0x00000000080040d0        0xc c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
+                0x00000000080040d0                __sinit_lock_release
+ .text.__sinit  0x00000000080040dc       0x70 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
+                0x00000000080040dc                __sinit
+ .text.__sfp    0x000000000800414c       0x8c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
+                0x000000000800414c                __sfp
  .text._fwalk_reent
-                0x00000000080041cc       0x3e c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-fwalk.o)
-                0x00000000080041cc                _fwalk_reent
+                0x00000000080041d8       0x3e c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-fwalk.o)
+                0x00000000080041d8                _fwalk_reent
  .text.__retarget_lock_init_recursive
-                0x000000000800420a        0x2 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-lock.o)
-                0x000000000800420a                __retarget_lock_init_recursive
+                0x0000000008004216        0x2 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-lock.o)
+                0x0000000008004216                __retarget_lock_init_recursive
  .text.__retarget_lock_acquire_recursive
-                0x000000000800420c        0x2 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-lock.o)
-                0x000000000800420c                __retarget_lock_acquire_recursive
+                0x0000000008004218        0x2 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-lock.o)
+                0x0000000008004218                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x000000000800420e        0x2 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-lock.o)
-                0x000000000800420e                __retarget_lock_release_recursive
- .text.memset   0x0000000008004210       0x10 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-memset.o)
-                0x0000000008004210                memset
+                0x000000000800421a        0x2 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-lock.o)
+                0x000000000800421a                __retarget_lock_release_recursive
+ .text.memset   0x000000000800421c       0x10 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-memset.o)
+                0x000000000800421c                memset
  .text._malloc_r
-                0x0000000008004220       0xb4 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-mallocr.o)
-                0x0000000008004220                _malloc_r
- .text._sbrk_r  0x00000000080042d4       0x20 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-sbrkr.o)
-                0x00000000080042d4                _sbrk_r
- .text.__sread  0x00000000080042f4       0x22 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-stdio.o)
-                0x00000000080042f4                __sread
+                0x000000000800422c       0xb4 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-mallocr.o)
+                0x000000000800422c                _malloc_r
+ .text._sbrk_r  0x00000000080042e0       0x20 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-sbrkr.o)
+                0x00000000080042e0                _sbrk_r
+ .text.__sread  0x0000000008004300       0x22 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-stdio.o)
+                0x0000000008004300                __sread
  .text.__swrite
-                0x0000000008004316       0x38 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-stdio.o)
-                0x0000000008004316                __swrite
- .text.__sseek  0x000000000800434e       0x24 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-stdio.o)
-                0x000000000800434e                __sseek
+                0x0000000008004322       0x38 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-stdio.o)
+                0x0000000008004322                __swrite
+ .text.__sseek  0x000000000800435a       0x24 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-stdio.o)
+                0x000000000800435a                __sseek
  .text.__sclose
-                0x0000000008004372        0x8 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-stdio.o)
-                0x0000000008004372                __sclose
- .text          0x000000000800437a       0x14 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-strcmp.o)
-                0x000000000800437a                strcmp
- .text          0x000000000800438e       0x10 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-strlen.o)
-                0x000000000800438e                strlen
- .text.strncpy  0x000000000800439e       0x26 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-strncpy.o)
-                0x000000000800439e                strncpy
+                0x000000000800437e        0x8 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-stdio.o)
+                0x000000000800437e                __sclose
+ .text          0x0000000008004386       0x14 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-strcmp.o)
+                0x0000000008004386                strcmp
+ .text          0x000000000800439a       0x10 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-strlen.o)
+                0x000000000800439a                strlen
+ .text.strncpy  0x00000000080043aa       0x26 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-strncpy.o)
+                0x00000000080043aa                strncpy
  .text._vsnprintf_r
-                0x00000000080043c4       0x58 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-vsnprintf.o)
-                0x00000000080043c4                _vsniprintf_r
-                0x00000000080043c4                _vsnprintf_r
+                0x00000000080043d0       0x58 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-vsnprintf.o)
+                0x00000000080043d0                _vsniprintf_r
+                0x00000000080043d0                _vsnprintf_r
  .text.vsnprintf
-                0x000000000800441c       0x1c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-vsnprintf.o)
-                0x000000000800441c                vsniprintf
-                0x000000000800441c                vsnprintf
+                0x0000000008004428       0x1c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-vsnprintf.o)
+                0x0000000008004428                vsniprintf
+                0x0000000008004428                vsnprintf
  .text._write_r
-                0x0000000008004438       0x24 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-writer.o)
-                0x0000000008004438                _write_r
+                0x0000000008004444       0x24 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-writer.o)
+                0x0000000008004444                _write_r
  .text._close_r
-                0x000000000800445c       0x20 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-closer.o)
-                0x000000000800445c                _close_r
+                0x0000000008004468       0x20 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-closer.o)
+                0x0000000008004468                _close_r
  .text.__sflush_r
-                0x000000000800447c      0x10c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-fflush.o)
-                0x000000000800447c                __sflush_r
+                0x0000000008004488      0x10c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-fflush.o)
+                0x0000000008004488                __sflush_r
  .text._fflush_r
-                0x0000000008004588       0x78 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-fflush.o)
-                0x0000000008004588                _fflush_r
+                0x0000000008004594       0x78 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-fflush.o)
+                0x0000000008004594                _fflush_r
  .text._lseek_r
-                0x0000000008004600       0x24 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-lseekr.o)
-                0x0000000008004600                _lseek_r
+                0x000000000800460c       0x24 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-lseekr.o)
+                0x000000000800460c                _lseek_r
  .text.__malloc_lock
-                0x0000000008004624        0xc c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-mlock.o)
-                0x0000000008004624                __malloc_lock
- .text.__malloc_unlock
                 0x0000000008004630        0xc c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-mlock.o)
-                0x0000000008004630                __malloc_unlock
- .text._free_r  0x000000000800463c       0x9c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-freer.o)
-                0x000000000800463c                _free_r
+                0x0000000008004630                __malloc_lock
+ .text.__malloc_unlock
+                0x000000000800463c        0xc c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-mlock.o)
+                0x000000000800463c                __malloc_unlock
+ .text._free_r  0x0000000008004648       0x9c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-freer.o)
+                0x0000000008004648                _free_r
  .text.__ssputs_r
-                0x00000000080046d8       0xb6 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x00000000080046d8                __ssputs_r
- *fill*         0x000000000800478e        0x2 
+                0x00000000080046e4       0xb6 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x00000000080046e4                __ssputs_r
+ *fill*         0x000000000800479a        0x2 
  .text._svfprintf_r
-                0x0000000008004790      0x200 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x0000000008004790                _svfiprintf_r
-                0x0000000008004790                _svfprintf_r
+                0x000000000800479c      0x200 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x000000000800479c                _svfiprintf_r
+                0x000000000800479c                _svfprintf_r
  .text._printf_common
-                0x0000000008004990       0xda c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0000000008004990                _printf_common
- *fill*         0x0000000008004a6a        0x2 
+                0x000000000800499c       0xda c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000000000800499c                _printf_common
+ *fill*         0x0000000008004a76        0x2 
  .text._printf_i
-                0x0000000008004a6c      0x24c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0000000008004a6c                _printf_i
- .text._read_r  0x0000000008004cb8       0x24 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-readr.o)
-                0x0000000008004cb8                _read_r
- *fill*         0x0000000008004cdc        0x4 
- .text          0x0000000008004ce0       0xa0 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-memchr.o)
-                0x0000000008004ce0                memchr
- .text.memcpy   0x0000000008004d80       0x1c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-memcpy-stub.o)
-                0x0000000008004d80                memcpy
- .text.memmove  0x0000000008004d9c       0x34 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-memmove.o)
-                0x0000000008004d9c                memmove
+                0x0000000008004a78      0x24c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000008004a78                _printf_i
+ .text._read_r  0x0000000008004cc4       0x24 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-readr.o)
+                0x0000000008004cc4                _read_r
+ *fill*         0x0000000008004ce8        0x8 
+ .text          0x0000000008004cf0       0xa0 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-memchr.o)
+                0x0000000008004cf0                memchr
+ .text.memcpy   0x0000000008004d90       0x1c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-memcpy-stub.o)
+                0x0000000008004d90                memcpy
+ .text.memmove  0x0000000008004dac       0x34 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-memmove.o)
+                0x0000000008004dac                memmove
  .text._realloc_r
-                0x0000000008004dd0       0x4c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-reallocr.o)
-                0x0000000008004dd0                _realloc_r
+                0x0000000008004de0       0x4c c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-reallocr.o)
+                0x0000000008004de0                _realloc_r
  .text._malloc_usable_size_r
-                0x0000000008004e1c       0x10 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-msizer.o)
-                0x0000000008004e1c                _malloc_usable_size_r
+                0x0000000008004e2c       0x10 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-msizer.o)
+                0x0000000008004e2c                _malloc_usable_size_r
  *(.rodata .rodata.* .constdata .constdata.*)
- .rodata        0x0000000008004e2c       0x31 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
- *fill*         0x0000000008004e5d        0x3 
- .rodata        0x0000000008004e60       0x2f ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
- *fill*         0x0000000008004e8f        0x1 
- .rodata        0x0000000008004e90       0x3e ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
-                0x0000000008004e90                APBAHBPrescTable
- *fill*         0x0000000008004ece        0x2 
- .rodata        0x0000000008004ed0       0x14 ./system/src/newlib/_exit.o
- .rodata        0x0000000008004ee4        0x9 ./system/src/newlib/_syscalls.o
- *fill*         0x0000000008004eed        0x3 
- .rodata        0x0000000008004ef0       0x6f ./system/src/newlib/assert.o
- *fill*         0x0000000008004f5f        0x1 
- .rodata        0x0000000008004f60       0x2d ./system/src/diag/Trace.o
- *fill*         0x0000000008004f8d        0x3 
- .rodata        0x0000000008004f90      0x14a ./system/src/cortexm/exception_handlers.o
- *fill*         0x00000000080050da        0x2 
- .rodata        0x00000000080050dc       0x10 ./system/src/cmsis/system_stm32f4xx.o
-                0x00000000080050dc                AHBPrescTable
+ .rodata        0x0000000008004e3c       0x31 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
+ *fill*         0x0000000008004e6d        0x3 
+ .rodata        0x0000000008004e70       0x2f ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
+ *fill*         0x0000000008004e9f        0x1 
+ .rodata        0x0000000008004ea0       0x3e ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
+                0x0000000008004ea0                APBAHBPrescTable
+ *fill*         0x0000000008004ede        0x2 
+ .rodata        0x0000000008004ee0       0x14 ./system/src/newlib/_exit.o
+ .rodata        0x0000000008004ef4        0x9 ./system/src/newlib/_syscalls.o
+ *fill*         0x0000000008004efd        0x3 
+ .rodata        0x0000000008004f00       0x6f ./system/src/newlib/assert.o
+ *fill*         0x0000000008004f6f        0x1 
+ .rodata        0x0000000008004f70       0x2d ./system/src/diag/Trace.o
+ *fill*         0x0000000008004f9d        0x3 
+ .rodata        0x0000000008004fa0      0x14a ./system/src/cortexm/exception_handlers.o
+ *fill*         0x00000000080050ea        0x2 
+ .rodata        0x00000000080050ec       0x10 ./system/src/cmsis/system_stm32f4xx.o
+                0x00000000080050ec                AHBPrescTable
  .rodata._ctype_
-                0x00000000080050ec      0x101 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-ctype_.o)
-                0x00000000080050ec                _ctype_
- *fill*         0x00000000080051ed        0x3 
+                0x00000000080050fc      0x101 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-ctype_.o)
+                0x00000000080050fc                _ctype_
+ *fill*         0x00000000080051fd        0x3 
  .rodata.__sf_fake_stderr
-                0x00000000080051f0       0x20 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
-                0x00000000080051f0                __sf_fake_stderr
+                0x0000000008005200       0x20 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
+                0x0000000008005200                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x0000000008005210       0x20 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
-                0x0000000008005210                __sf_fake_stdin
+                0x0000000008005220       0x20 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
+                0x0000000008005220                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x0000000008005230       0x20 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
-                0x0000000008005230                __sf_fake_stdout
+                0x0000000008005240       0x20 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-findfp.o)
+                0x0000000008005240                __sf_fake_stdout
  .rodata._global_impure_ptr
-                0x0000000008005250        0x4 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-impure.o)
-                0x0000000008005250                _global_impure_ptr
+                0x0000000008005260        0x4 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-impure.o)
+                0x0000000008005260                _global_impure_ptr
  .rodata._svfprintf_r.str1.1
-                0x0000000008005254       0x11 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x0000000008005264       0x11 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
  .rodata._printf_i.str1.1
-                0x0000000008005265       0x22 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000008005275       0x22 c:/users/egydi/appdata/roaming/xpacks/@xpack-dev-tools/arm-none-eabi-gcc/9.2.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
  *(vtable)
  *(.eh_frame*)
  *(.glue_7)
- .glue_7        0x0000000008005287        0x0 linker stubs
+ .glue_7        0x0000000008005297        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008005287        0x0 linker stubs
+ .glue_7t       0x0000000008005297        0x0 linker stubs
 
-.vfp11_veneer   0x0000000008005288        0x0
- .vfp11_veneer  0x0000000008005288        0x0 linker stubs
+.vfp11_veneer   0x0000000008005298        0x0
+ .vfp11_veneer  0x0000000008005298        0x0 linker stubs
 
-.v4_bx          0x0000000008005288        0x0
- .v4_bx         0x0000000008005288        0x0 linker stubs
+.v4_bx          0x0000000008005298        0x0
+ .v4_bx         0x0000000008005298        0x0 linker stubs
 
-.iplt           0x0000000008005288        0x0
- .iplt          0x0000000008005288        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
+.iplt           0x0000000008005298        0x0
+ .iplt          0x0000000008005298        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
 
-.rel.dyn        0x0000000008005288        0x0
- .rel.iplt      0x0000000008005288        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
+.rel.dyn        0x0000000008005298        0x0
+ .rel.iplt      0x0000000008005298        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008005288                . = ALIGN (0x4)
-                0x0000000008005288                __exidx_start = .
+                0x0000000008005298                . = ALIGN (0x4)
+                0x0000000008005298                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000000008005288                __exidx_end = .
-                0x0000000008005288                . = ALIGN (0x4)
-                0x0000000008005288                _etext = .
-                0x0000000008005288                __etext = .
+                0x0000000008005298                __exidx_end = .
+                0x0000000008005298                . = ALIGN (0x4)
+                0x0000000008005298                _etext = .
+                0x0000000008005298                __etext = .
 
-.data_CCMRAM    0x0000000010000000        0x0 load address 0x0000000008005288
+.data_CCMRAM    0x0000000010000000        0x0 load address 0x0000000008005298
  FILL mask 0xff
  *(.data.CCMRAM .data.CCMRAM.*)
                 0x0000000010000000                . = ALIGN (0x4)
-                0x0000000008005288                _sidata = LOADADDR (.data)
+                0x0000000008005298                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000       0x78 load address 0x0000000008005288
+.data           0x0000000020000000       0x78 load address 0x0000000008005298
  FILL mask 0xff
                 0x0000000020000000                _sdata = .
                 0x0000000020000000                __data_start__ = .
@@ -4379,7 +4379,7 @@ END GROUP
                 0x0000000020000078                _edata = .
                 0x0000000020000078                __data_end__ = .
 
-.igot.plt       0x0000000020000078        0x0 load address 0x0000000008005300
+.igot.plt       0x0000000020000078        0x0 load address 0x0000000008005310
  .igot.plt      0x0000000020000078        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
 
 .bss_CCMRAM     0x0000000010000000        0x0
@@ -4702,7 +4702,7 @@ END GROUP
  .debug_abbrev  0x0000000000002903      0x36a ./src/main.o
  .debug_abbrev  0x0000000000002c6d      0x1d9 ./src/stm32f4xx_hal_msp.o
 
-.debug_line     0x0000000000000000     0xb718
+.debug_line     0x0000000000000000     0xb71c
  *(.debug_line)
  .debug_line    0x0000000000000000      0xbfe ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_line    0x0000000000000bfe      0xff0 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
@@ -4720,8 +4720,8 @@ END GROUP
  .debug_line    0x0000000000008603      0xb93 ./system/src/cmsis/system_stm32f4xx.o
  .debug_line    0x0000000000009196      0x2e8 ./system/src/cmsis/vectors_stm32f407xx.o
  .debug_line    0x000000000000947e      0xb2c ./src/_initialize_hardware.o
- .debug_line    0x0000000000009faa      0xc7c ./src/main.o
- .debug_line    0x000000000000ac26      0xaf2 ./src/stm32f4xx_hal_msp.o
+ .debug_line    0x0000000000009faa      0xc80 ./src/main.o
+ .debug_line    0x000000000000ac2a      0xaf2 ./src/stm32f4xx_hal_msp.o
 
 .debug_frame    0x0000000000000000     0x1e44
  *(.debug_frame)

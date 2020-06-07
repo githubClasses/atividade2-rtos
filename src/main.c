@@ -228,7 +228,7 @@ initialize_task_stack()
   sp_orange--;
 
   // Inicialização da pilha da task blink_green
-  green_stack[39] = 1U << 24;
+  green_stack[39] = 1U << 24;sp_green--;
   green_stack[38] = 0x08003E0A;
   green_stack[37] = 0x0000ABCD;
   green_stack[36] = 0x0000BCDE;
