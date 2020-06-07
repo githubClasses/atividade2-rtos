@@ -1,14 +1,14 @@
 /*
- * --------------------------- Exercício 01 ----------------------------------
+ * --------------------------- Exercício 02 ----------------------------------
  *
  * Egydio Tadeu Gomes Ramos
  *
- * Programa Blink.
+ * Stack Frame.
  *
- *  - Implementa a contagem de tempo utilizando o SysTick
- *  - Uma função de delay
- *  - Funções para acender e apagar LEDs
- *  - Teste das funções com os LEDs da placa
+ *  - Implementa duas tasks blink_orange e blink_green
+ *  - São criadas as stack frames para cada task
+ *  - Na interrupção do systick, o contexto é mudado manualmente alterando
+ *    o valor do apontador de pilha (sp)
  */
 
 // ----------------------------------------------------------------------------
@@ -22,6 +22,7 @@
 #include <stdlib.h>
 #include "diag/Trace.h"
 #include "stm32f4xx.h"
+
 
 // ----------------------------------------------------------------------------
 
@@ -59,8 +60,8 @@ uint32_t orange_stack[40];
 uint32_t green_stack[40];
 
 // Apontadores das pilhas das tarefas
-uint32_t* sp_orange = &orange_stack[40];
-uint32_t* sp_green = &green_stack[40];
+uint32_t* sp_orange = &orange_stack[39];
+uint32_t* sp_green = &green_stack[39];
 
 // ----------------------------------------------------------------------------
 
@@ -82,6 +83,11 @@ void initialize_task_stack();
 void blink_orange();
 void blink_green();
 
+// Cria apontadores para as tasks para garantir que as funções sejam definidas
+// no arquivo compilado
+void (*blink_orange_task)() = &blink_orange;
+void (*blink_green_task)() = &blink_green;
+
 // ----------------------------------------------------------------------------
 
 /*
@@ -98,11 +104,6 @@ main(int argc, char* argv[])
   SysTick_Config(SystemCoreClock/16000); // habilita interrupções do systick
 
   gpio_config(); // configura o clock no barramento e as portas GPIO
-
-  // Cria apontadores para as tasks para garantir que as funções sejam definidas
-  // no arquivo compilado
-  void (*blink_orange_task)() = &blink_orange;
-  void (*blink_green_task)() = &blink_green;
 
   while (1)
     {
@@ -124,6 +125,9 @@ blink_orange()
 {
   while (1)
     {
+      // Troca para a tarefa blink_green
+      // __asm ("LDR R15, =blink_green");
+      // __asm ("LDR R13, =sp_green");
       led_turnOn(LED_ORANGE);
       delay_ms(1000);
       led_turnOff(LED_ORANGE);
@@ -216,28 +220,38 @@ initialize_task_stack()
   //    R0
 
   // Inicialização da pilha da task blink_orange
-  orange_stack[39] = 1U << 24;
-  orange_stack[38] = 0x08003DE4;
-  orange_stack[37] = 0x0000AAAA;
-  orange_stack[36] = 0x0000BBBB;
-  orange_stack[35] = 0x0000CCCC;
-  orange_stack[34] = 0x0000DDDD;
-  orange_stack[33] = 0x0000EEEE;
-  orange_stack[32] = 0x0000FFFF;
-
+  *sp_orange = 1U << 24;
   sp_orange--;
+  *sp_orange = (uint32_t) blink_orange_task;
+  sp_orange--;
+  *sp_orange = 0xFFFFFFFF;
+  sp_orange--;
+  *sp_orange = 0x0000BBBB;
+  sp_orange--;
+  *sp_orange = 0x0000CCCC;
+  sp_orange--;
+  *sp_orange = 0x0000DDDD;
+  sp_orange--;
+  *sp_orange = 0x0000EEEE;
+  sp_orange--;
+  *sp_orange = 0x0000FFFF;
 
   // Inicialização da pilha da task blink_green
-  green_stack[39] = 1U << 24;sp_green--;
-  green_stack[38] = 0x08003E0A;
-  green_stack[37] = 0x0000ABCD;
-  green_stack[36] = 0x0000BCDE;
-  green_stack[35] = 0x0000CDEF;
-  green_stack[34] = 0x0000DEFA;
-  green_stack[33] = 0x0000EFAB;
-  green_stack[32] = 0x0000FABC;
-
+  *sp_green = 1U << 24;
   sp_green--;
+  *sp_green = (uint32_t) blink_green_task;
+  sp_green--;
+  *sp_green = 0xFFFFFFFF;
+  sp_green--;
+  *sp_green = 0x0000BCDE;
+  sp_green--;
+  *sp_green = 0x0000CDEF;
+  sp_green--;
+  *sp_green = 0x0000DEFA;
+  sp_green--;
+  *sp_green = 0x0000EFAB;
+  sp_green--;
+  *sp_green = 0x0000FABC;
 }
 
 
