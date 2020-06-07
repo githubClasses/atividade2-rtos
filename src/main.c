@@ -33,7 +33,7 @@
 // ----------------------------------------------------------------------------
 
 /*
- * -------------------- Definição de constantes -------------------------------
+ * ------------- Definição de constantes e variáveis globais ------------------
  */
 
 // Apelidos auxilares para configuração das GPIOS
@@ -60,6 +60,10 @@ static volatile uint32_t msTicks = 0;
  * ---------------- Protótipos das funções auxiliares ------------------------
  */
 void GPIO_Config();
+uint32_t get_tick();
+void delay_ms(uint32_t delay);
+void led_turnOn(uint32_t ledPin);
+void led_turnOff(uint32_t ledPin);
 
 
 // ----------------------------------------------------------------------------
@@ -73,11 +77,20 @@ main(int argc, char* argv[])
 {
   HAL_Init();
 
-  GPIO_Config();
+  SysTick_Config(SystemCoreClock/16000); // habilita interrupções do systick
 
-  GPIOD->ODR |= LED_GREEN | LED_RED;
+  gpio_config(); // configura o clock no barramento e as portas GPIO
 
-  while(1);
+
+  while (1)
+    {
+      for (int i = 0; i < 4; i++)
+        {
+          led_turnOn(LED_GREEN << i);
+          delay_ms(1000);
+          led_turnOff(LED_GREEN << i);
+        }
+    }
 
   return 0;
 }
@@ -88,8 +101,38 @@ main(int argc, char* argv[])
  * ----------------------- Definição das Funções Auxiliares -------------------
  */
 
+// Função de interrupção do SysTick
 void
-GPIO_Config()
+SysTick_Handler()
+{
+  msTicks++;
+}
+
+uint32_t
+get_ticks()
+{
+  uint32_t ticks;
+
+  __disable_irq(); // desabilita interrupções enquanto lê a variável msTicks
+                   // para evitar race conditions
+
+  ticks = msTicks;
+
+  __enable_irq(); // habilita novamente as interrupções
+
+  return ticks;
+}
+
+void
+delay_ms(uint32_t delay)
+{
+  uint32_t startTime = get_ticks();
+
+  while (get_ticks() - startTime < delay); // laço dummy para esperar o delay
+}
+
+void
+gpio_config()
 {
   RCC->AHB1ENR |= GPIO_PORTD_CLKEN; // habilita o clock no barramento
 
@@ -97,6 +140,18 @@ GPIO_Config()
                   LED_ORANGE_MODER |
                   LED_RED_MODER    |
                   LED_BLUE_MODER;
+}
+
+void
+led_turnOn(uint32_t ledPin)
+{
+  GPIOD->ODR |= ledPin; // Atribui nível alto na saída do pino
+}
+
+void
+led_turnOff(uint32_t ledPin)
+{
+  GPIOD->ODR &= ~(ledPin); // Atribui nível baixo na saída do pino
 }
 
 
