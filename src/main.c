@@ -13,52 +13,94 @@
 
 // ----------------------------------------------------------------------------
 
+
+/*
+ * --------------- Inclusão das bibliotecas auxiliares ------------------------
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "diag/Trace.h"
+#include "stm32f4xx.h"
 
 // ----------------------------------------------------------------------------
-//
-// Semihosting STM32F4 empty sample (trace via DEBUG).
-//
-// Trace support is enabled by adding the TRACE macro definition.
-// By default the trace messages are forwarded to the DEBUG output,
-// but can be rerouted to any device or completely suppressed, by
-// changing the definitions required in system/src/diag/trace_impl.c
-// (currently OS_USE_TRACE_ITM, OS_USE_TRACE_SEMIHOSTING_DEBUG/_STDOUT).
-//
 
-// ----- main() ---------------------------------------------------------------
-
-// Sample pragmas to cope with warnings. Please note the related line at
-// the end of this function, used to pop the compiler diagnostics status.
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #pragma GCC diagnostic ignored "-Wmissing-declarations"
 #pragma GCC diagnostic ignored "-Wreturn-type"
 
+// ----------------------------------------------------------------------------
+
+/*
+ * -------------------- Definição de constantes -------------------------------
+ */
+
+// Apelidos auxilares para configuração das GPIOS
+
+#define GPIO_PORTD_CLKEN 1U<<3
+#define LED_GREEN_MODER  1U<<24
+#define LED_ORANGE_MODER 1U<<26
+#define LED_RED_MODER    1U<<28
+#define LED_BLUE_MODER   1U<<30
+
+// Apelidos auxiliares para manipulação do registrador de saída ODR
+
+#define LED_GREEN  1U<<12
+#define LED_ORANGE 1U<<13
+#define LED_RED    1U<<14
+#define LED_BLUE   1U<<15
+
+// Variável para contagem do tempo em ms
+static volatile uint32_t msTicks = 0;
+
+// ----------------------------------------------------------------------------
+
+/*
+ * ---------------- Protótipos das funções auxiliares ------------------------
+ */
+void GPIO_Config();
+
+
+// ----------------------------------------------------------------------------
+
+/*
+ * -------------------------- Função Main -------------------------------------
+ */
+
 int
 main(int argc, char* argv[])
 {
-  // At this stage the system clock should have already been configured
-  // at high speed.
+  HAL_Init();
 
-#define LOOP_COUNT (5)
-  int loops = LOOP_COUNT;
-  if (argc > 1)
-    {
-      // If defined, get the number of loops from the command line,
-      // configurable via semihosting.
-      loops = atoi (argv[1]);
-    }
+  GPIO_Config();
 
-  // Short loop.
-  for (int i = 0; i < loops; i++)
-    {
-       // Add your code here.
-    }
+  GPIOD->ODR |= LED_GREEN | LED_RED;
+
+  while(1);
+
   return 0;
 }
+
+// ----------------------------------------------------------------------------
+
+/*
+ * ----------------------- Definição das Funções Auxiliares -------------------
+ */
+
+void
+GPIO_Config()
+{
+  RCC->AHB1ENR |= GPIO_PORTD_CLKEN; // habilita o clock no barramento
+
+  GPIOD->MODER |= LED_GREEN_MODER  | // habilita as portas dos leds como saídas
+                  LED_ORANGE_MODER |
+                  LED_RED_MODER    |
+                  LED_BLUE_MODER;
+}
+
+
+// ----------------------------------------------------------------------------
 
 #pragma GCC diagnostic pop
 
